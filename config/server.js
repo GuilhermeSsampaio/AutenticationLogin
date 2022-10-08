@@ -1,6 +1,24 @@
+/* importar o modulo do framework express*/
+var express = require('express');
+/*importar o modulo do express-session*/
+var session = require('express-session');
+/* importar o modulo do consign*/
+var consign = require('consign');
+/* importar o modulo do body-parser*/
+var bodyParser = require('body-parser');
+/* importar o modulo do express-validator*/
+
+var expressValidator = require('express-validator');
+/* iniciar o objeto do express*/
+
+
+
+var http = require('http');
 var path = require('path');
 var busboy = require('then-busboy');
 var fileUpload = require('express-fileupload');
+
+
 
 var app = express();
 /* setar as variaveis 'view engine' e 'view' do express*/
@@ -14,6 +32,7 @@ app.use(session({
 	resave: true,
 	saveUninitialized: false
 }));
+
 
 /* configurar o middleware body-parser*/
 app.use(bodyParser.urlencoded({extended: false}));
