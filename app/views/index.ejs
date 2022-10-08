@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Portal de notícias</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap.min.css">
+        <style>
+        	.vertical-center {
+        	   min-height: 100%;  
+        	   min-height: 100vh; 
+        	   display: flex;
+                align-items: center;
+        	}
+        </style>
+</head>
+<body>
+    <div class='container vertical-center'>
+        <div class='row container'>	   	   
+            <div class='col-lg-6'>
+	   	        <form action="/usuarioA/login" method="post">
+                    <table class="container mb-4" style="border:solid; color:gray">
+                        <tr class="text-center"><td colspan="2"><img src="images/logo.png"></td></tr>
+                        <tr><td><label>Usuário </label></td><td ><input type="text" name="user_name" required></td></tr>
+                        <tr><td><label>Senha </label></td><td><input type="password" name="senha" required></td></tr>
+                        <tr><td colspan="2" ><input type="submit" value="Login" name="login" class="btn btn-success"></td></tr>  
+                    </table>    
+                </form>
+            </div>   
+            <div class='col-lg-6'>
+                <form action="/usuarioB/login" method="post">
+                    <table class="container" style="border:solid; color:gray" >
+                        <tr class="text-center"><td colspan="2"><img src="images/administrador.png"></td></tr>
+                        <tr><td><label>Usuário </label></td><td><input type="text" name="user_name" required></td></tr>
+                        <tr><td><label>Senha </label></td><td><input type="password" name="senha" required></td></tr>
+                        <tr><td colspan="2" ><input type="submit" value="Login Adm" name="login" class="btn btn-success"></td></tr>  
+                    </table>    
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
