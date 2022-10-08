@@ -63,8 +63,10 @@ const redirectHome = (req, res, next) => {
 }
 
 app.use((req, res, next) => {
-    const {userID} = req.session
-    if(userID){
+    const {
+        userID
+    } = req.session
+    if (userID) {
         res.locals.user = users.find(user => user.id === userID)
     }
     next()
@@ -90,8 +92,10 @@ app.get('/', (req, res) => {
 
 
 app.get('/home', redirectLogin, (req, res) => {
-    const {user} = res.locals
-console.log(req.session.userID)
+    const {
+        user
+    } = res.locals
+    console.log(req.session.userID)
     res.send(`
         <h1>home</h1>   
         <a href= '/'> menu </a>
@@ -99,11 +103,13 @@ console.log(req.session.userID)
         <li>name: ${user.name} </li>
         <li>email: ${user.email}</li>
         </ul>
-    `)            
+    `)
 })
 
 app.get('/profile', (req, res) => {
-    const {user} = res.locals
+    const {
+        user
+    } = res.locals
 })
 
 app.get('/login', (req, res) => {
@@ -132,7 +138,10 @@ app.get('/register', (req, res) => {
     `)
 })
 app.post('/login', (req, res) => {
-    const {email, password} = req.body
+    const {
+        email,
+        password
+    } = req.body
     // const user= "";
     if (email && password) {
         const user = users.find(
@@ -165,11 +174,11 @@ app.post('/register', redirectHome, (req, res) => {
                 email,
                 password
             }
-        users.push(user)
+            users.push(user)
 
-        req.session.userID = user.id
+            req.session.userID = user.id
 
-        return res.redirect('/home')
+            return res.redirect('/home')
         }
     }
     res.redirect('/login')
@@ -177,7 +186,7 @@ app.post('/register', redirectHome, (req, res) => {
 
 app.post('/logout', redirectLogin, (req, res) => {
     req.session.destroy(err => {
-        if(err){
+        if (err) {
             return res.redirect('/home')
         }
         res.clearCookie(SESS_NAME)
